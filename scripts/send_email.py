@@ -19,25 +19,30 @@ EMAIL_FROM = os.getenv("EMAIL_FROM", EMAIL_USER)
 EMAIL_TO = os.getenv("EMAIL_TO", "").split(",")
 
 
-def build_share_links(text: str, asset: str = None):
-    """Generate share links for supported platforms"""
+def build_share_links(text: str, asset: str = None, platforms: dict = None):
+    """Generate share links only for the given platforms"""
     base_text = text if text else "Check this out!"
-    share_links = {
+
+    all_links = {
         "LinkedIn": f"https://www.linkedin.com/sharing/share-offsite/?url=https://example.com&summary={base_text}",
         "Facebook": f"https://www.facebook.com/sharer/sharer.php?u=https://example.com&quote={base_text}",
         "X": f"https://twitter.com/intent/tweet?text={base_text}",
-        "Instagram": "https://www.instagram.com/",  # Instagram doesn't allow prefilled shares via URL
+        "Instagram": "https://www.instagram.com/",  # Instagram doesn't support direct prefilled share
         "TikTok": "https://www.tiktok.com/",        # TikTok requires in-app sharing
         "WhatsApp": f"https://wa.me/?text={base_text}"
     }
-    return share_links
+
+    if platforms:
+        return {p: all_links[p] for p in platforms.keys() if p in all_links}
+    return all_links
 
 
 def build_email_html(subject: str, text: str, platforms: dict, asset: str = None):
     """Render HTML email using Jinja2 template"""
     env = Environment(loader=FileSystemLoader("scripts/templates"))
     template = env.get_template("email_template.html")
-    share_links = build_share_links(text, asset)
+
+    share_links = build_share_links(text, asset, platforms)
 
     return template.render(
         subject=subject,

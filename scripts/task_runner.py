@@ -13,7 +13,7 @@ TIMEZONE = os.getenv("TIMEZONE", "UTC")
 CALENDAR_FILE = "calendar/bootcamp_calendar.json"
 STATE_FILE = "calendar/state.json"  # Keeps track of what was already sent
 
-TOLERANCE_MINUTES = 20  # Prevents duplicate sends if script runs every 30 mins
+TOLERANCE_MINUTES = 10  # Prevents duplicate sends if script runs every 30 mins
 
 
 def load_calendar():
@@ -87,13 +87,16 @@ def task_runner(start_date):
             state_key = f"W{current_week}-{current_day}-{platform}-{t}"
 
             if diff <= TOLERANCE_MINUTES and state_key not in state:
-                # ✅ Build email content here
+                # ✅ Build email content
                 subject = build_subject(current_week, current_day, day_plan["post_type"], platform)
                 text = build_message(day_plan)
                 asset = resolve_asset(day_plan)
 
+                # ✅ Only include the current platform in email
+                platform_dict = {platform: t}
+
                 print(f"📤 Sending {subject}...")
-                send_email(subject, text, day_plan["platforms"], asset)
+                send_email(subject, text, platform_dict, asset)
 
                 # Mark as sent
                 state[state_key] = True
@@ -102,7 +105,7 @@ def task_runner(start_date):
 
 if __name__ == "__main__":
     # Define the start date of Week 1 (e.g., the Monday bootcamp starts)
-    # ⚠️ Adjust this to the actual Monday start date of your bootcamp
+    # ⚠️ Adjust this to your actual Week 1 Monday
     bootcamp_start_date = datetime(2025, 9, 22, tzinfo=pytz.UTC)
 
     task_runner(bootcamp_start_date)

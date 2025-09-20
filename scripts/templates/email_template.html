@@ -3,21 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; }
-    .container { padding: 20px; }
-    .message { margin: 20px 0; }
-    .buttons { margin-top: 20px; }
+    body { 
+      font-family: Arial, sans-serif; 
+      line-height: 1.6; 
+      background-color: #f9f9f9; 
+      margin: 0; 
+      padding: 0; 
+    }
+    .container { 
+      background: #ffffff; 
+      max-width: 600px; 
+      margin: 20px auto; 
+      padding: 20px; 
+      border: 1px solid #ddd; 
+      border-radius: 8px; 
+    }
+    h2 { 
+      margin-top: 0; 
+      color: #333333; 
+    }
+    .message { 
+      margin: 15px 0; 
+      color: #444444; 
+    }
+    .asset { 
+      margin: 20px 0; 
+      font-style: italic; 
+      color: #555555; 
+    }
+    .buttons { 
+      margin-top: 20px; 
+    }
     .button {
       display: inline-block;
-      padding: 10px 15px;
-      margin: 5px;
-      background-color: #28a745;
-      color: #fff;
+      padding: 10px 18px;
+      margin: 5px 0;
+      background-color: #444444; /* Neutral dark gray */
+      color: white;
       text-decoration: none;
       border-radius: 5px;
       font-size: 14px;
     }
-    .button:hover { background-color: #218838; }
+    .button:hover { 
+      background-color: #222222; 
+    }
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #888888;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -26,13 +61,17 @@
     <p class="message">{{ message }}</p>
 
     {% if asset %}
-    <p><strong>Attached content:</strong> {{ asset }}</p>
+    <p class="asset">📎 Attached content: {{ asset }}</p>
     {% endif %}
 
     <div class="buttons">
       {% for platform, link in share_links.items() %}
-      <a href="{{ link }}" class="button" target="_blank">Share on {{ platform }}</a>
+      <a href="{{ link }}" class="button" target="_blank">Share Now ({{ platform }})</a><br>
       {% endfor %}
+    </div>
+
+    <div class="footer">
+      <p>This email was generated automatically by the Bootcamp Automation System.</p>
     </div>
   </div>
 </body>
