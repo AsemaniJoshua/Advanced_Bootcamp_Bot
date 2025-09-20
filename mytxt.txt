@@ -1,0 +1,82 @@
+{
+      "week": 1,
+      "days": {
+        "Monday": {
+          "post_type": "Bootcamp Promo",
+          "content_type": "flyer",
+          "asset": "assets/flyers/week1_monday.png",
+          "text": "🚀 Bootcamp Promo – Join us this week!",
+          "platforms": {
+            "LinkedIn": "07:45",
+            "Instagram": "11:30",
+            "Facebook": "12:30",
+            "WhatsApp": "08:00",
+            "TikTok": "20:00",
+            "X": "18:00"
+          }
+        },
+        "Tuesday": {
+          "post_type": "Mini-Lesson (== vs ===)",
+          "content_type": "text",
+          "asset": null,
+          "text": "💡 Mini-Lesson: Understanding == vs === in JavaScript",
+          "platforms": {
+            "LinkedIn": "12:15",
+            "Instagram": "13:00",
+            "Facebook": "12:00",
+            "TikTok": "19:30",
+            "X": "08:30",
+            "WhatsApp": "07:30"
+          }
+        },
+        "Wednesday": {
+          "post_type": "Curated Article",
+          "content_type": "link",
+          "asset": null,
+          "text": "🔥 Check out this week’s curated article!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Facebook": "13:00",
+            "X": "09:00",
+            "Instagram Story": "19:00"
+          }
+        },
+        "Thursday": {
+          "post_type": "Engagement Question",
+          "content_type": "text",
+          "asset": null,
+          "text": "❓ Engagement Question: What’s your biggest coding challenge this week?",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "X": "08:30",
+            "Facebook": "19:00",
+            "WhatsApp": "09:00"
+          }
+        },
+        "Friday": {
+          "post_type": "Student Testimonial / Result",
+          "content_type": "flyer",
+          "asset": "assets/testimonials/week1_friday.png",
+          "text": "🎓 Student Testimonial – Real stories, real growth!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Instagram": "19:00",
+            "TikTok": "20:00",
+            "Facebook": "12:30",
+            "WhatsApp": "19:30"
+          }
+        },
+        "Sunday": {
+          "post_type": "Early Bird Reminder",
+          "content_type": "text",
+          "asset": null,
+          "text": "📣 Early Bird Reminder – Don’t miss out!",
+          "platforms": {
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "WhatsApp": ["08:00", "20:00"],
+            "Facebook": "19:00"
+          }
+        }
+      }
+    },
