@@ -1,6 +1,7 @@
 import os
 import smtplib
 import mimetypes
+import requests
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -53,7 +54,7 @@ def send_email(subject: str, text: str, platforms: dict, asset: str = None):
         if mime_type and mime_type.startswith("image"):
             try:
                 # Fetch raw image (works if asset is GitHub-hosted URL)
-                import requests
+                
                 resp = requests.get(asset)
                 resp.raise_for_status()
                 img_data = resp.content

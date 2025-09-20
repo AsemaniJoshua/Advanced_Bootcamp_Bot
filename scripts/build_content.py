@@ -1,5 +1,6 @@
 import os
 from fetch_articles import fetch_curated_article
+import html
 
 
 
