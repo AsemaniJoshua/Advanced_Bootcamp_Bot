@@ -1,0 +1,314 @@
+{
+  "weeks": [
+    {
+      "week": 1,
+      "days": {
+        "Monday": {
+          "post_type": "Bootcamp Promo",
+          "content_type": "flyer",
+          "asset": "assets/flyers/week1_monday.png",
+          "text": "🚀 Bootcamp Promo – Join us this week!",
+          "platforms": {
+            "LinkedIn": "07:45",
+            "Instagram": "11:30",
+            "Facebook": "12:30",
+            "WhatsApp": "08:00",
+            "TikTok": "20:00",
+            "X": "18:00"
+          }
+        },
+        "Tuesday": {
+          "post_type": "Mini-Lesson (== vs ===)",
+          "content_type": "text",
+          "asset": null,
+          "text": "💡 Mini-Lesson: Understanding == vs === in JavaScript",
+          "platforms": {
+            "LinkedIn": "12:15",
+            "Instagram": "13:00",
+            "Facebook": "12:00",
+            "TikTok": "19:30",
+            "X": "08:30",
+            "WhatsApp": "07:30"
+          }
+        },
+        "Wednesday": {
+          "post_type": "Curated Article",
+          "content_type": "link",
+          "asset": null,
+          "text": "🔥 Check out this week’s curated article!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Facebook": "13:00",
+            "X": "09:00",
+            "Instagram Story": "19:00"
+          }
+        },
+        "Thursday": {
+          "post_type": "Engagement Question",
+          "content_type": "text",
+          "asset": null,
+          "text": "❓ Engagement Question: What’s your biggest coding challenge this week?",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "X": "08:30",
+            "Facebook": "19:00",
+            "WhatsApp": "09:00"
+          }
+        },
+        "Friday": {
+          "post_type": "Student Testimonial / Result",
+          "content_type": "flyer",
+          "asset": "assets/testimonials/week1_friday.png",
+          "text": "🎓 Student Testimonial – Real stories, real growth!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Instagram": "19:00",
+            "TikTok": "20:00",
+            "Facebook": "12:30",
+            "WhatsApp": "19:30"
+          }
+        },
+        "Sunday": {
+          "post_type": "Early Bird Reminder",
+          "content_type": "text",
+          "asset": null,
+          "text": "📣 Early Bird Reminder – Don’t miss out!",
+          "platforms": {
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "WhatsApp": ["08:00", "20:00"],
+            "Facebook": "19:00"
+          }
+        }
+      }
+    },
+    {
+      "week": 2,
+      "days": {
+        "Monday": {
+          "post_type": "Bootcamp Promo (Animated Flyer)",
+          "content_type": "flyer",
+          "asset": "assets/flyers/week2_monday.gif",
+          "text": "🚀 Bootcamp Promo – Animated Flyer",
+          "platforms": {
+            "LinkedIn": "07:45",
+            "Instagram": "12:00",
+            "TikTok": "20:30",
+            "WhatsApp": "08:00"
+          }
+        },
+        "Tuesday": {
+          "post_type": "Mini-Lesson (Array methods tip)",
+          "content_type": "text",
+          "asset": null,
+          "text": "💡 Mini-Lesson: Useful Array methods in JavaScript",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "Instagram": "13:00",
+            "X": "08:00",
+            "TikTok": "19:00",
+            "WhatsApp": "07:30"
+          }
+        },
+        "Wednesday": {
+          "post_type": "Curated Article",
+          "content_type": "link",
+          "asset": null,
+          "text": "🔥 This week’s must-read curated article!",
+          "platforms": {
+            "LinkedIn": "08:45",
+            "Facebook": "13:00",
+            "X": "12:00",
+            "Instagram Story": "20:00"
+          }
+        },
+        "Thursday": {
+          "post_type": "Engagement Question",
+          "content_type": "text",
+          "asset": null,
+          "text": "❓ Engagement Question: What new skill are you working on?",
+          "platforms": {
+            "LinkedIn": "12:30",
+            "X": "09:00",
+            "Facebook": "19:00"
+          }
+        },
+        "Friday": {
+          "post_type": "Student Testimonial",
+          "content_type": "flyer",
+          "asset": "assets/testimonials/week2_friday.png",
+          "text": "🎓 Student Testimonial – Another success story!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "WhatsApp": ["08:00", "20:00"]
+          }
+        },
+        "Sunday": {
+          "post_type": "Deadline Reminder",
+          "content_type": "text",
+          "asset": null,
+          "text": "📣 Deadline Reminder – Register before it’s too late!",
+          "platforms": {
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "WhatsApp": "19:00",
+            "Facebook": "19:30"
+          }
+        }
+      }
+    },
+    {
+      "week": 3,
+      "days": {
+        "Monday": {
+          "post_type": "Bootcamp Promo",
+          "content_type": "flyer",
+          "asset": "assets/flyers/week3_monday.png",
+          "text": "🚀 Bootcamp Promo – Let’s go!",
+          "platforms": {
+            "LinkedIn": "07:30",
+            "Instagram": "12:00",
+            "Facebook": "12:30",
+            "TikTok": "20:00",
+            "WhatsApp": "08:00"
+          }
+        },
+        "Tuesday": {
+          "post_type": "Mini-Lesson (React basics)",
+          "content_type": "text",
+          "asset": null,
+          "text": "💡 Mini-Lesson: React basics for beginners",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "Instagram": "13:00",
+            "X": "08:00",
+            "TikTok": "19:00"
+          }
+        },
+        "Wednesday": {
+          "post_type": "Curated Article",
+          "content_type": "link",
+          "asset": null,
+          "text": "🔥 Curated article of the week",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Facebook": "12:30",
+            "X": "18:00",
+            "Instagram Story": "19:00"
+          }
+        },
+        "Thursday": {
+          "post_type": "Engagement Poll",
+          "content_type": "text",
+          "asset": null,
+          "text": "📊 Engagement Poll: Which framework do you prefer?",
+          "platforms": {
+            "LinkedIn": "12:15",
+            "X": "08:00",
+            "Facebook": "19:00"
+          }
+        },
+        "Friday": {
+          "post_type": "Student Testimonial",
+          "content_type": "flyer",
+          "asset": "assets/testimonials/week3_friday.png",
+          "text": "🎓 Student Testimonial – Success speaks!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Instagram": "19:00",
+            "TikTok": "20:30",
+            "WhatsApp": ["08:00", "19:00"]
+          }
+        },
+        "Sunday": {
+          "post_type": "Last Chance Reminder",
+          "content_type": "text",
+          "asset": null,
+          "text": "📣 Last Chance – Don’t miss it!",
+          "platforms": {
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "Facebook": "19:00"
+          }
+        }
+      }
+    },
+    {
+      "week": 4,
+      "days": {
+        "Monday": {
+          "post_type": "Bootcamp Promo (Video Reel)",
+          "content_type": "video",
+          "asset": "assets/flyers/week4_monday.mp4",
+          "text": "🚀 Bootcamp Promo – Video Reel",
+          "platforms": {
+            "LinkedIn": "07:30",
+            "Instagram": "12:30",
+            "TikTok": "20:30",
+            "WhatsApp": "08:00"
+          }
+        },
+        "Tuesday": {
+          "post_type": "Mini-Lesson (Functions tip)",
+          "content_type": "text",
+          "asset": null,
+          "text": "💡 Mini-Lesson: Handy Functions tip in JavaScript",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "Instagram": "13:00",
+            "X": "08:00",
+            "TikTok": "19:30"
+          }
+        },
+        "Wednesday": {
+          "post_type": "Curated Article",
+          "content_type": "link",
+          "asset": null,
+          "text": "🔥 Curated Article of the week",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Facebook": "12:30",
+            "X": "18:00"
+          }
+        },
+        "Thursday": {
+          "post_type": "Engagement Question",
+          "content_type": "text",
+          "asset": null,
+          "text": "❓ Engagement Question: What’s your top productivity hack?",
+          "platforms": {
+            "LinkedIn": "12:00",
+            "X": "08:30",
+            "Facebook": "19:30"
+          }
+        },
+        "Friday": {
+          "post_type": "Final Student Testimonial",
+          "content_type": "flyer",
+          "asset": "assets/testimonials/week4_friday.png",
+          "text": "🎓 Final Student Testimonial – Bootcamp journey complete!",
+          "platforms": {
+            "LinkedIn": "08:30",
+            "Instagram": "19:30",
+            "TikTok": "20:30",
+            "WhatsApp": ["08:00", "19:30"]
+          }
+        },
+        "Sunday": {
+          "post_type": "Bootcamp Starts Tomorrow",
+          "content_type": "text",
+          "asset": null,
+          "text": "🎉 Bootcamp starts tomorrow – get ready!",
+          "platforms": {
+            "Instagram": "20:00",
+            "TikTok": "21:00",
+            "WhatsApp": ["08:00", "20:00"],
+            "Facebook": "19:00"
+          }
+        }
+      }
+    }
+  ]
+}

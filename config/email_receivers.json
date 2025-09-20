@@ -1,0 +1,19 @@
+{
+  "recipients": [
+    {
+      "name": "Person One",
+      "email": "person1@example.com",
+      "platforms": ["LinkedIn", "Instagram", "Facebook", "WhatsApp", "TikTok", "X"]
+    },
+    {
+      "name": "Person Two",
+      "email": "person2@example.com",
+      "platforms": ["LinkedIn", "Instagram", "Facebook", "WhatsApp", "TikTok", "X"]
+    },
+    {
+      "name": "Person Three",
+      "email": "person3@example.com",
+      "platforms": ["LinkedIn", "Instagram", "Facebook", "WhatsApp", "TikTok", "X"]
+    }
+  ]
+}
