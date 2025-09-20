@@ -68,7 +68,7 @@ def send_email(subject: str, text: str, platforms: dict, asset: str = None):
         else:
             # Fallback: attach non-image file (e.g., video)
             try:
-                import requests
+                
                 resp = requests.get(asset, stream=True)
                 resp.raise_for_status()
                 file_data = resp.content

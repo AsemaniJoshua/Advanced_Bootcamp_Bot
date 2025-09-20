@@ -2,3 +2,4 @@ python-dotenv==1.0.1     # Load environment variables from .env
 jinja2==3.1.4            # Build email HTML templates with share buttons
 pytz==2024.2             # Handle timezones for scheduled posts
 feedparser
+requests
