@@ -1,86 +1,91 @@
 import os
 import smtplib
-import ssl
+import mimetypes
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email import encoders
-from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
+from build_content import build_share_links
 
-# Load environment variables
-load_dotenv()
-
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
-EMAIL_FROM = os.getenv("EMAIL_FROM", EMAIL_USER)
+EMAIL_FROM = os.getenv("EMAIL_FROM")
 EMAIL_TO = os.getenv("EMAIL_TO", "").split(",")
+SMTP_SERVER = os.getenv("SMTP_SERVER")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASS = os.getenv("SMTP_PASS")
 
 
-def build_share_links(text: str, asset: str = None, platforms: dict = None):
-    """Generate share links only for the given platforms"""
-    base_text = text if text else "Check this out!"
-
-    all_links = {
-        "LinkedIn": f"https://www.linkedin.com/sharing/share-offsite/?url=https://example.com&summary={base_text}",
-        "Facebook": f"https://www.facebook.com/sharer/sharer.php?u=https://example.com&quote={base_text}",
-        "X": f"https://twitter.com/intent/tweet?text={base_text}",
-        "Instagram": "https://www.instagram.com/",  # Instagram doesn't support direct prefilled share
-        "TikTok": "https://www.tiktok.com/",        # TikTok requires in-app sharing
-        "WhatsApp": f"https://wa.me/?text={base_text}"
-    }
-
-    if platforms:
-        return {p: all_links[p] for p in platforms.keys() if p in all_links}
-    return all_links
-
-
-def build_email_html(subject: str, text: str, platforms: dict, asset: str = None):
-    """Render HTML email using Jinja2 template"""
+def build_email_html(subject: str, text: str, platforms: dict, asset_url: str = None):
+    """Render HTML email with optional inline image and share links"""
     env = Environment(loader=FileSystemLoader("scripts/templates"))
     template = env.get_template("email_template.html")
 
-    share_links = build_share_links(text, asset, platforms)
+    share_links = build_share_links(text, asset_url, platforms)
 
     return template.render(
         subject=subject,
         message=text,
         share_links=share_links,
-        platforms=platforms,
-        asset=asset
+        asset=asset_url
     )
 
 
 def send_email(subject: str, text: str, platforms: dict, asset: str = None):
-    """Send email with optional attachment"""
-    # Create MIME message
-    msg = MIMEMultipart("alternative")
+    """Send email with optional inline image or attachment"""
+    msg = MIMEMultipart("related")  # allows HTML + images
     msg["From"] = EMAIL_FROM
     msg["To"] = ", ".join(EMAIL_TO)
     msg["Subject"] = subject
 
-    # HTML body
-    html_body = build_email_html(subject, text, platforms, asset)
-    msg.attach(MIMEText(html_body, "html"))
+    # Create alternative for HTML
+    msg_alt = MIMEMultipart("alternative")
+    msg.attach(msg_alt)
 
-    # Attach asset if provided (flyer/image/video)
-    if asset and os.path.exists(asset):
-        with open(asset, "rb") as f:
-            part = MIMEBase("application", "octet-stream")
-            part.set_payload(f.read())
-        encoders.encode_base64(part)
-        part.add_header("Content-Disposition", f"attachment; filename={os.path.basename(asset)}")
-        msg.attach(part)
+    # Build HTML body
+    html_body = build_email_html(subject, text, platforms, asset)
+    msg_alt.attach(MIMEText(html_body, "html"))
+
+    # If asset exists, decide how to include it
+    if asset:
+        mime_type, _ = mimetypes.guess_type(asset)
+        if mime_type and mime_type.startswith("image"):
+            try:
+                # Fetch raw image (works if asset is GitHub-hosted URL)
+                import requests
+                resp = requests.get(asset)
+                resp.raise_for_status()
+                img_data = resp.content
+
+                img = MIMEImage(img_data)
+                img.add_header("Content-ID", "<inline-image>")
+                img.add_header("Content-Disposition", "inline", filename=os.path.basename(asset))
+                msg.attach(img)
+            except Exception as e:
+                print(f"⚠️ Could not embed image inline: {e}")
+        else:
+            # Fallback: attach non-image file (e.g., video)
+            try:
+                import requests
+                resp = requests.get(asset, stream=True)
+                resp.raise_for_status()
+                file_data = resp.content
+
+                base = MIMEBase("application", "octet-stream")
+                base.set_payload(file_data)
+                encoders.encode_base64(base)
+                base.add_header("Content-Disposition", f"attachment; filename={os.path.basename(asset)}")
+                msg.attach(base)
+            except Exception as e:
+                print(f"⚠️ Could not attach asset: {e}")
 
     # Send email
-    context = ssl.create_default_context()
     try:
-        with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
-            server.starttls(context=context)
-            server.login(EMAIL_USER, EMAIL_PASS)
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
             server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
-        print(f"✅ Email sent successfully to {EMAIL_TO}")
+        print(f"✅ Email sent: {subject}")
     except Exception as e:
-        print(f"❌ Failed to send email: {e}")
+        print(f"❌ Error sending email: {e}")

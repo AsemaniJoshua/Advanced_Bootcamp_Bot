@@ -19,7 +19,7 @@
           "post_type": "Mini-Lesson (Array methods tip)",
           "content_type": "text",
           "asset": null,
-          "text": "💡 Mini-Lesson: Useful Array methods in JavaScript",
+          "text": "💡 Mini-Lesson: Useful Array methods in JavaScript<p>JavaScript arrays are more powerful than most beginners realize. Methods like <code>.map()</code>, <code>.filter()</code>, and <code>.reduce()</code> can completely change how you handle data. Instead of writing long loops, you can perform transformations, filter results, and calculate totals in just a few lines of clean code.</p><p>For example, <code>.map()</code> allows you to quickly transform each element in an array, while <code>.filter()</code> helps you pick only the values you need. Want to get fancy? <code>.reduce()</code> lets you build something entirely new from your array — like summing values or grouping data. Mastering these will not only save you time but also make your code more professional and maintainable.</p>",
           "platforms": {
             "LinkedIn": "12:00",
             "Instagram": "13:00",
@@ -44,7 +44,7 @@
           "post_type": "Engagement Question",
           "content_type": "text",
           "asset": null,
-          "text": "❓ Engagement Question: What new skill are you working on?",
+          "text": "❓ Engagement Question: What new skill are you working on?<p>Learning never stops in tech! Whether it’s picking up a new programming language, diving deeper into frameworks like React, or improving your problem-solving skills, every small step compounds into big progress.</p><p>So, we’d love to hear from you: What new skill are you focusing on right now? Drop your answer below 👇 and let’s celebrate each other’s growth. You might even inspire someone else to get started today!</p>",
           "platforms": {
             "LinkedIn": "12:30",
             "X": "09:00",
@@ -67,7 +67,7 @@
           "post_type": "Deadline Reminder",
           "content_type": "text",
           "asset": null,
-          "text": "📣 Deadline Reminder – Register before it’s too late!",
+          "text": "📣 Deadline Reminder – Register before it’s too late!<p>The countdown is on! Our bootcamp deadline is almost here, and spots are filling up faster than ever. This is your chance to join a program that has already transformed the careers of so many students. Don’t miss your opportunity to gain practical, in-demand skills that employers are actively looking for.</p><p>Remember: investing in yourself is the best decision you can make. Secure your seat today and take that step toward the tech career you’ve always dreamed of. Once registration closes, you’ll have to wait until the next cohort!</p>",
           "platforms": {
             "Instagram": "20:00",
             "TikTok": "21:00",
@@ -97,7 +97,7 @@
           "post_type": "Mini-Lesson (React basics)",
           "content_type": "text",
           "asset": null,
-          "text": "💡 Mini-Lesson: React basics for beginners",
+          "text": "💡 Mini-Lesson: React basics for beginners<p>React is one of the most popular JavaScript libraries for building user interfaces — and for good reason. It allows you to create reusable components, making your code cleaner, modular, and easier to maintain. At its core, React lets you build apps like Lego blocks: piece by piece, all fitting perfectly together.</p><p>If you’re new to React, start with the basics: components, props, and state. Once you understand these, you’ll be able to create interactive apps that respond to user actions seamlessly. React is the foundation of many modern apps — learning it today is an investment in your future as a developer.</p>",
           "platforms": {
             "LinkedIn": "12:00",
             "Instagram": "13:00",
@@ -121,7 +121,7 @@
           "post_type": "Engagement Poll",
           "content_type": "text",
           "asset": null,
-          "text": "📊 Engagement Poll: Which framework do you prefer?",
+          "text": "📊 Engagement Poll: Which framework do you prefer?<p>There’s no one-size-fits-all when it comes to frameworks, and developers are often passionate about their favorites. React, Vue, Angular, Svelte — each has its strengths, from speed to flexibility to developer experience.</p><p>So we want to hear from you: Which framework do you prefer and why? Cast your vote and share your reasons. Your insight might help another developer decide which one to learn next!</p>",
           "platforms": {
             "LinkedIn": "12:15",
             "X": "08:00",
@@ -144,7 +144,7 @@
           "post_type": "Last Chance Reminder",
           "content_type": "text",
           "asset": null,
-          "text": "📣 Last Chance – Don’t miss it!",
+          "text": "📣 Last Chance – Don’t miss it!<p>This is it — your final call to secure a spot in our bootcamp! If you’ve been on the fence, now is the time to take action. Doors close very soon, and once they’re shut, you’ll have to wait for the next cycle.</p><p>Don’t let hesitation hold you back. Imagine where you could be in just a few months after learning, networking, and building real projects with us. Take the leap — future you will thank you for it.</p>",
           "platforms": {
             "Instagram": "20:00",
             "TikTok": "21:00",
@@ -172,7 +172,7 @@
           "post_type": "Mini-Lesson (Functions tip)",
           "content_type": "text",
           "asset": null,
-          "text": "💡 Mini-Lesson: Handy Functions tip in JavaScript",
+          "text": "💡 Mini-Lesson: Handy Functions tip in JavaScript<p>Functions are the backbone of JavaScript, and writing them effectively can make your code shine. Did you know that JavaScript functions can be treated just like variables? You can assign them, pass them around, and even return them from other functions.</p><p>One powerful feature is arrow functions — they allow you to write shorter, cleaner code, especially for callbacks. And don’t forget about default parameters, which let you provide fallback values in case no argument is passed. Mastering these small tips will save you debugging headaches and improve your productivity.</p>",
           "platforms": {
             "LinkedIn": "12:00",
             "Instagram": "13:00",
@@ -195,7 +195,7 @@
           "post_type": "Engagement Question",
           "content_type": "text",
           "asset": null,
-          "text": "❓ Engagement Question: What’s your top productivity hack?",
+          "text": "❓ Engagement Question: What’s your top productivity hack?<p>Every developer has that one trick or routine that helps them stay focused and efficient. It could be a favorite tool, a way of organizing tasks, or even a daily habit that boosts productivity.</p><p>We’d love to hear yours! Share your best productivity hack in the comments — who knows, you might introduce someone to their new favorite workflow tip. Let’s help each other level up not just in coding, but in how we manage our time and energy.</p>",
           "platforms": {
             "LinkedIn": "12:00",
             "X": "08:30",
@@ -218,7 +218,7 @@
           "post_type": "Bootcamp Starts Tomorrow",
           "content_type": "text",
           "asset": null,
-          "text": "🎉 Bootcamp starts tomorrow – get ready!",
+          "text": "🎉 Bootcamp starts tomorrow – get ready!<p>The wait is almost over! Tomorrow marks the beginning of an exciting journey where you’ll dive deep into coding, tackle real projects, and connect with a community of learners just like you.</p><p>Make sure you’ve got everything ready: your laptop, your mindset, and your eagerness to learn. This is your chance to build the future you’ve been dreaming about — and we can’t wait to get started with you!</p>",
           "platforms": {
             "Instagram": "20:00",
             "TikTok": "21:00",

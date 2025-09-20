@@ -58,15 +58,27 @@
 <body>
   <div class="container">
     <h2>{{ subject }}</h2>
-    <p class="message">{{ message }}</p>
+    <div class="message">{{ message | safe }}</div>
 
     {% if asset %}
-    <p class="asset">📎 Attached content: {{ asset }}</p>
+      <div class="asset">
+        <p>📎 Attached content:</p>
+        {% if asset.endswith('.png') or asset.endswith('.jpg') or asset.endswith('.jpeg') or asset.endswith('.gif') %}
+          <!-- Show inline embedded image -->
+          <img src="cid:inline-image" alt="Bootcamp Media" style="max-width:100%; border-radius:6px;">
+        {% elif asset.endswith('.mp4') %}
+          <!-- For videos, just provide a link -->
+          <p><a href="{{ asset }}">🎥 View Video</a></p>
+        {% else %}
+          <!-- Fallback for any other file type -->
+          <p><a href="{{ asset }}">📂 View Attachment</a></p>
+        {% endif %}
+      </div>
     {% endif %}
 
     <div class="buttons">
       {% for platform, link in share_links.items() %}
-      <a href="{{ link }}" class="button" target="_blank">Share Now ({{ platform }})</a><br>
+        <a href="{{ link }}" class="button" target="_blank">Share Now ({{ platform }})</a><br>
       {% endfor %}
     </div>
 
