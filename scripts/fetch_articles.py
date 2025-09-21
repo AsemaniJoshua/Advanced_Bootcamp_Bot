@@ -14,9 +14,11 @@ def fetch_curated_article():
     """
     try:
         feed_url = random.choice(FEEDS)
-        feed = feedparser.parse(feed_url)
+        # Set a User-Agent for all feeds (especially Reddit)
+        feed = feedparser.parse(feed_url, request_headers={"User-Agent": "Mozilla/5.0"})
 
         if not feed.entries:
+            print(f"⚠️ No entries found for {feed_url}")
             return {
                 "title": "No trending article found",
                 "url": "https://developer.mozilla.org/",

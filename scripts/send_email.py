@@ -9,13 +9,24 @@ from email.mime.base import MIMEBase
 from email import encoders
 from jinja2 import Environment, FileSystemLoader
 from build_content import build_share_links
+from dotenv import load_dotenv
+
+# Loading environments
+load_dotenv()
+
+# --- Environment Validation ---
+required_env_vars = ["EMAIL_FROM", "EMAIL_TO", "EMAIL_HOST", "EMAIL_USER", "EMAIL_PASS"]
+missing_vars = [var for var in required_env_vars if not os.getenv(var)]
+
+if missing_vars:
+    raise ValueError(f"❌ Missing required environment variables: {', '.join(missing_vars)}")
 
 EMAIL_FROM = os.getenv("EMAIL_FROM")
 EMAIL_TO = os.getenv("EMAIL_TO", "").split(",")
-SMTP_SERVER = os.getenv("SMTP_SERVER")
-SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
-SMTP_USER = os.getenv("SMTP_USER")
-SMTP_PASS = os.getenv("SMTP_PASS")
+SMTP_SERVER = os.getenv("EMAIL_HOST")
+SMTP_PORT = int(os.getenv("EMAIL_PORT", 587))  # Default to 587 for STARTTLS
+SMTP_USER = os.getenv("EMAIL_USER")
+SMTP_PASS = os.getenv("EMAIL_PASS")
 
 
 def build_email_html(subject: str, text: str, platforms: dict, asset_url: str = None):
@@ -35,6 +46,7 @@ def build_email_html(subject: str, text: str, platforms: dict, asset_url: str = 
 
 def send_email(subject: str, text: str, platforms: dict, asset: str = None):
     """Send email with optional inline image or attachment"""
+    # print(">>> send_email.py loaded")  # Add this at the top
     msg = MIMEMultipart("related")  # allows HTML + images
     msg["From"] = EMAIL_FROM
     msg["To"] = ", ".join(EMAIL_TO)
@@ -83,10 +95,19 @@ def send_email(subject: str, text: str, platforms: dict, asset: str = None):
 
     # Send email
     try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
+        
+        if SMTP_PORT == 465:
+            with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
+                server.ehlo()
+                server.login(SMTP_USER, SMTP_PASS)
+                server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
+        else:
+            with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login(SMTP_USER, SMTP_PASS)
+                server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
         print(f"✅ Email sent: {subject}")
     except Exception as e:
         print(f"❌ Error sending email: {e}")

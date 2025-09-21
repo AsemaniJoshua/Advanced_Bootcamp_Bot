@@ -31,4 +31,7 @@ jobs:
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           TIMEZONE: ${{ secrets.TIMEZONE }}
+          G_USERNAME: ${{ secrets.G_USERNAME }}
+          G_REPO: ${{ secrets.G_REPO }}
+          G_BRANCH: ${{ secrets.G_BRANCH }}
         run: python scripts/task_runner.py
