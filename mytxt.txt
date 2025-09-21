@@ -80,3 +80,12 @@
         }
       }
     },
+
+
+
+
+
+
+    <div class="footer">
+      <p>This email was generated automatically by the Bootcamp Automation System Designed by Asemani Joshua.</p>
+    </div>
