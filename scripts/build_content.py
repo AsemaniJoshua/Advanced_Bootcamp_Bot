@@ -1,6 +1,7 @@
 import os
 from fetch_articles import fetch_curated_article
 import html
+from urllib.parse import quote
 
 
 
@@ -55,3 +56,30 @@ def resolve_asset(day_plan: dict) -> str:
     branch = os.getenv("G_BRANCH", "main")
 
     return f"https://raw.githubusercontent.com/{username}/{repo}/{branch}/{asset_path}"
+
+
+def build_share_links(text: str, asset: str = None, platforms: dict = None) -> dict:
+    """
+    Generate share links only for the given platforms, with optional asset URL.
+    - Uses urllib.parse.quote to URL-encode text and URLs.
+    - Returns a dict {platform: link} filtered to 'platforms' if provided.
+    """
+    base_text = text if text else "Check this out!"
+    encoded_text = quote(base_text, safe="")
+    encoded_url = quote(asset, safe="") if asset else quote("https://example.com", safe="")
+
+    all_links = {
+        "LinkedIn": f"https://www.linkedin.com/sharing/share-offsite/?url={encoded_url}&summary={encoded_text}",
+        "Facebook": f"https://www.facebook.com/sharer/sharer.php?u={encoded_url}&quote={encoded_text}",
+        "X": f"https://twitter.com/intent/tweet?text={encoded_text}%20{encoded_url}",
+        # Instagram & TikTok don't support prefilled web share reliably; provide the asset/url as fallback
+        "Instagram": encoded_url,
+        "TikTok": encoded_url,
+        "WhatsApp": f"https://api.whatsapp.com/send?text={encoded_text}%20{encoded_url}"
+    }
+
+    if platforms:
+        # 'platforms' is expected to be a dict of scheduled times; keep only keys that exist in all_links
+        return {p: all_links[p] for p in platforms.keys() if p in all_links}
+
+    return all_links

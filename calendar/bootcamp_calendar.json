@@ -6,7 +6,7 @@
         "Monday": {
           "post_type": "Bootcamp Promo (Animated Flyer)",
           "content_type": "flyer",
-          "asset": "assets/flyers/week2_monday.gif",
+          "asset": "assets/flyers/week2_monday.mp4",
           "text": "🚀 Bootcamp Promo – Animated Flyer",
           "platforms": {
             "LinkedIn": "07:45",
@@ -54,7 +54,7 @@
         "Friday": {
           "post_type": "Student Testimonial",
           "content_type": "flyer",
-          "asset": "assets/testimonials/week2_friday.png",
+          "asset": "assets/testimonials/week2_friday.jpg",
           "text": "🎓 Student Testimonial – Another success story!",
           "platforms": {
             "LinkedIn": "08:30",
@@ -83,7 +83,7 @@
         "Monday": {
           "post_type": "Bootcamp Promo",
           "content_type": "flyer",
-          "asset": "assets/flyers/week3_monday.png",
+          "asset": "assets/flyers/week3_monday.jpg",
           "text": "🚀 Bootcamp Promo – Let’s go!",
           "platforms": {
             "LinkedIn": "07:30",
@@ -131,7 +131,7 @@
         "Friday": {
           "post_type": "Student Testimonial",
           "content_type": "flyer",
-          "asset": "assets/testimonials/week3_friday.png",
+          "asset": "assets/testimonials/week3_friday.jpg",
           "text": "🎓 Student Testimonial – Success speaks!",
           "platforms": {
             "LinkedIn": "08:30",
@@ -159,7 +159,7 @@
         "Monday": {
           "post_type": "Bootcamp Promo (Video Reel)",
           "content_type": "video",
-          "asset": "assets/flyers/week4_monday.mp4",
+          "asset": "assets/flyers/week2_monday.mp4",
           "text": "🚀 Bootcamp Promo – Video Reel",
           "platforms": {
             "LinkedIn": "07:30",
@@ -205,7 +205,7 @@
         "Friday": {
           "post_type": "Final Student Testimonial",
           "content_type": "flyer",
-          "asset": "assets/testimonials/week4_friday.png",
+          "asset": "assets/testimonials/week4_friday.jpg",
           "text": "🎓 Final Student Testimonial – Bootcamp journey complete!",
           "platforms": {
             "LinkedIn": "08:30",
