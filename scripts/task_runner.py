@@ -24,7 +24,7 @@ def load_calendar():
 
 def load_state():
     """Load state to avoid duplicate sends"""
-    if not os.path.exists(STATE_FILE):
+    if not os.path.exists(STATE_FILE) or os.stat(STATE_FILE).st_size == 0:
         return {}
     with open(STATE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
