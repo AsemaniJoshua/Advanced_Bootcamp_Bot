@@ -2,9 +2,9 @@ import feedparser
 import random
 
 FEEDS = [
-    "https://dev.to/feed",              # Dev.to trending posts
-    "https://hnrss.org/frontpage",      # Hacker News frontpage
-    "https://www.reddit.com/r/webdev/.rss"  # Reddit Webdev community
+    "https://dev.to/feed"             # Dev.to trending posts
+    # "https://hnrss.org/frontpage",      # Hacker News frontpage
+    # "https://www.reddit.com/r/webdev/.rss"  # Reddit Webdev community
 ]
 
 def fetch_curated_article():
