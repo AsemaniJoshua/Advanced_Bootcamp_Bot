@@ -66,7 +66,7 @@ def build_share_links(text: str, asset: str = None, platforms: dict = None) -> d
     """
     base_text = text if text else "Check this out!"
     encoded_text = quote(base_text, safe="")
-    encoded_url = quote(asset, safe="") if asset else quote("https://example.com", safe="")
+    encoded_url = quote(asset, safe="") if asset else quote("", safe="")
 
     all_links = {
         "LinkedIn": f"https://www.linkedin.com/sharing/share-offsite/?url={encoded_url}&summary={encoded_text}",
